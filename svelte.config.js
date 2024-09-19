@@ -14,6 +14,7 @@ const config = {
 		adapter: adapter(),
 		paths:{
 			base: process.env.Node_ENV === 'production' ? '/verceltest-2' : '',
+			base: process.env.Node_ENV === 'production' ? '/verceltest-2.github.io' : '',
 		}
 	}
 };
