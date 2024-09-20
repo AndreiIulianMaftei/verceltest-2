@@ -5,6 +5,8 @@
 	import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "$lib/components/ui/card";
 	import { Separator } from "$lib/components/ui/separator";
 	import { fly } from "svelte/transition";
+	import pfp from "$lib/img/user.png";
+	import tumLogo from "$lib/img/tum-logo.png";
 
 	let confettiCanvas: HTMLCanvasElement;
 	let myConfetti: confetti.CreateTypes;
@@ -89,11 +91,11 @@
 				<!-- First Column: Profile -->
 				<div class="flex flex-col items-center text-center">
 					<div class="w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 border-4 border-[#0065BD] shadow-lg">
-						<img src="src/lib/img/user.png" alt="" class="w-full h-full object-cover" />
+						<img src={pfp} alt="" class="w-full h-full object-cover" />
 					</div>
 					<h2 class="text-xl md:text-2xl font-bold text-white mb-2">John Doe</h2>
 					<p class="text-base md:text-lg text-gray-200 mb-4">Information Engineering Student</p>
-					<img src="src/lib/img/tum-logo.png" alt="" class="w-20 md:w-24 mb-2" />
+					<img src={tumLogo} alt="" class="w-20 md:w-24 mb-2" />
 					<p class="text-xs md:text-sm text-gray-300">Technical University of Munich</p>
 				</div>
 
@@ -137,7 +139,7 @@
 			</div>
 		</CardContent>
 		<CardFooter class="flex justify-center space-x-3 md:space-x-4 pt-4">
-			<Button variant="outline" class="bg-[#0065BD] text-white hover:bg-[#3070B3] text-xs md:text-sm" onclick={fireConfetti}>
+			<Button variant="outline" class="bg-[#0065BD] text-white hover:bg-[#3070B3] text-xs md:text-sm">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4">
 					<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
 					<rect width="4" height="12" x="2" y="9"></rect>
@@ -145,7 +147,7 @@
 				</svg>
 				LinkedIn
 			</Button>
-			<Button variant="outline" class="bg-gray-700 text-white hover:bg-gray-800 text-xs md:text-sm" onclick={fireConfetti}>
+			<Button variant="outline" class="bg-gray-700 text-white hover:bg-gray-800 text-xs md:text-sm" >
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
 				GitHub
 			</Button>
