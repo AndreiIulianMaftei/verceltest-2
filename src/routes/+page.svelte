@@ -89,11 +89,11 @@
 				<!-- First Column: Profile -->
 				<div class="flex flex-col items-center text-center">
 					<div class="w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 border-4 border-[#0065BD] shadow-lg">
-						<img src="/images/user.png" alt="Profile picture" class="w-full h-full object-cover" />
+						<img src="static/user.png" alt="" class="w-full h-full object-cover" />
 					</div>
 					<h2 class="text-xl md:text-2xl font-bold text-white mb-2">John Doe</h2>
 					<p class="text-base md:text-lg text-gray-200 mb-4">Information Engineering Student</p>
-					<img src="/images/tum-logo.png" alt="TUM Logo" class="w-20 md:w-24 mb-2" />
+					<img src="/tum-logo.png" alt="" class="w-20 md:w-24 mb-2" />
 					<p class="text-xs md:text-sm text-gray-300">Technical University of Munich</p>
 				</div>
 
