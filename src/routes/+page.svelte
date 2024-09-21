@@ -7,6 +7,7 @@
 	import { fly } from "svelte/transition";
 	import pfp from "$lib/img/user.png";
 	import tumLogo from "$lib/img/tum-logo.png";
+	
 
 	let confettiCanvas: HTMLCanvasElement;
 	let myConfetti: confetti.CreateTypes;
@@ -156,13 +157,13 @@
 
 	{#if showMoreButton}
 		<div transition:fly={{ y: 20, duration: 800, delay: 300 }} class="mt-4">
-			<button class="text-gray-200 hover:text-white transition-colors duration-300 flex items-center group">
+			<a href="/about"><button class="text-gray-200 hover:text-white transition-colors duration-300 flex items-center group">
 				<span class="mr-2 text-xs md:text-sm font-medium">More About My Story</span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 md:h-4 md:w-4 transform group-hover:translate-x-1 transition-transform duration-300">
 					<path d="M5 12h14" />
 					<path d="m12 5 7 7-7 7" />
 				</svg>
-			</button>
+			</button></a>
 		</div>
 	{/if}
 </div>
