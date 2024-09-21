@@ -7,6 +7,8 @@
 	import { fly } from "svelte/transition";
 	import pfp from "$lib/img/user.png";
 	import tumLogo from "$lib/img/tum-logo.png";
+	import { AspectRatio } from "$lib/components/ui/aspect-ratio";
+
 	
 
 	let confettiCanvas: HTMLCanvasElement;
@@ -91,13 +93,14 @@
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 				<!-- First Column: Profile -->
 				<div class="flex flex-col items-center text-center">
+					
 					<div class="w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 border-4 border-[#0065BD] shadow-lg">
-						<img src={pfp} alt="" class="w-full h-full object-cover" />
+						<img src={pfp} alt="Profile picture" class="w-full h-full object-cover" />
 					</div>
-					<h2 class="text-xl md:text-2xl font-bold text-white mb-2">John Doe</h2>
+					<h2 class="text-xl md:text-2xl font-bold text-white mb-2">Maftei Andrei</h2>
 					<p class="text-base md:text-lg text-gray-200 mb-4">Information Engineering Student</p>
 					<img src={tumLogo} alt="" class="w-20 md:w-24 mb-2" />
-					<p class="text-xs md:text-sm text-gray-300">Technical University of Munich</p>
+					<p class="text-xs md:text-sm text-gray-300">Technical University of Munchen</p>
 				</div>
 
 				<!-- Second Column: Experience -->
@@ -109,16 +112,16 @@
 						<CardContent>
 							<ul class="space-y-3 md:space-y-4 text-sm md:text-base text-gray-200">
 								<li>
-									<h3 class="font-semibold">Research Assistant</h3>
-									<p class="text-xs md:text-sm">TUM Institute of AI • 2022 - Present</p>
+									<h3 class="font-semibold">FTC Team Leader</h3>
+									<p class="text-xs md:text-sm">ByteForce • 2020 - 2024</p>
 								</li>
 								<li>
 									<h3 class="font-semibold">Software Engineering Intern</h3>
-									<p class="text-xs md:text-sm">Tech Innovations GmbH • Summer 2021</p>
+									<p class="text-xs md:text-sm">AttoSoft Company • Summer 2024</p>
 								</li>
 								<li>
-									<h3 class="font-semibold">Student Project Lead</h3>
-									<p class="text-xs md:text-sm">TUM Robotics Club • 2020 - 2021</p>
+									<h3 class="font-semibold">Partners and Sponsors team</h3>
+									<p class="text-xs md:text-sm">TUM Business Club • 2024 - Present</p>
 								</li>
 							</ul>
 						</CardContent>
@@ -219,6 +222,35 @@
 		transform: translateX(0.25rem);
 	}
 
+	.profile-pic-container {
+		position: relative;
+	}
+
+	.profile-pic-border {
+		border: 4px solid transparent;
+		border-radius: 50%;
+		background: linear-gradient(45deg, #0065bd, #98c6ea, #3070b3, #64a0c8) border-box;
+		-webkit-mask:
+			linear-gradient(#fff 0 0) padding-box,
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: destination-out;
+		mask-composite: exclude;
+	}
+
+	.profile-pic-container:hover .profile-pic-border {
+		opacity: 1;
+		animation: rotate-border 8s linear infinite;
+	}
+
+	@keyframes rotate-border {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
 	@media (max-width: 640px) {
 		.card {
 			padding: 1rem;
@@ -235,5 +267,35 @@
 		.card {
 			padding: 2rem;
 		}
+	}
+	@media (max-width: 640px) {
+		.card {
+			padding: 1rem;
+		}
+	}
+
+	@media (min-width: 641px) and (max-width: 1024px) {
+		.card {
+			padding: 1.5rem;
+		}
+	}
+
+	@media (min-width: 1025px) {
+		.card {
+			padding: 2rem;
+		}
+	}
+	@keyframes gradient-x {
+		0%,
+		100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+	.animate-gradient-x {
+		animation: gradient-x 3s ease infinite;
+		background-size: 200% 200%;
 	}
 </style>
