@@ -9,9 +9,27 @@
 
     //import {create, attrs, keyframes} from '@stylexjs/stylex';
     let track: HTMLElement;
-    
-    onMount(() => {
+    let imagesLoaded = false;  
+
+    const imagesToPreload = [pic1, pic2, pic3, pic4];
+
+	function preloadImages(srcs: string[]) {
+		return Promise.all(
+			srcs.map((src) => {
+				return new Promise((resolve, reject) => {
+					const img = new Image();
+					img.onload = () => resolve(img);
+					img.onerror = reject;
+					img.src = src;
+				});
+			})
+		);
+	}
+
+    onMount(async() => {
       track = document.getElementById("image-track")!;
+      await preloadImages(imagesToPreload);
+	  imagesLoaded = true;
     });
     if(typeof window !== 'undefined'){
         window.onmouseup = e => {
@@ -78,6 +96,7 @@
         <p class = "word">Maftei</p>
     </div>
 </div>-->
+{#if imagesLoaded}
 <div id = "image-track" data-mouse-down-at = "0" data-prev-percentage = "0" data-clicked = "0" data-percentage = "0">
     <img class="image" src={pic1} alt="" draggable="false"> 
     <img class="image" src={pic2} alt="" draggable="false"> 
@@ -87,5 +106,5 @@
     <img class="image" src={pic2} alt="" draggable="false"> 
     <img class="image" src={pic3} alt="" draggable="false"> 
 </div>
-
+{/if}
 
